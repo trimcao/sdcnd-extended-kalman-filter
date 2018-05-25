@@ -65,9 +65,7 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
   while (y(1) < -M_PI) {
     y(1) = y(1) + 2*M_PI;
   }
-  // std::cout << "Current Angle:" << std::endl;
-  // std::cout << y(1) << std::endl;
-
+  
   MatrixXd H_T = H_.transpose();
   MatrixXd S = H_*P_*H_T + R_;
   MatrixXd K = P_*H_T*S.inverse();
