@@ -58,16 +58,16 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
   x_radar(2) = (px*vx + py*vy) / x_radar(0);
 
   VectorXd y = z - x_radar;
-  // need to normalize phi in vector y
+  // need to normalize phi in vector y to the range [-pi, pi]
   while (y(1) > M_PI) {
     y(1) = y(1) - 2*M_PI;
   }
   while (y(1) < -M_PI) {
     y(1) = y(1) + 2*M_PI;
   }
-  std::cout << "Current Angle:" << std::endl;
-  std::cout << y(1) << std::endl;
-  
+  // std::cout << "Current Angle:" << std::endl;
+  // std::cout << y(1) << std::endl;
+
   MatrixXd H_T = H_.transpose();
   MatrixXd S = H_*P_*H_T + R_;
   MatrixXd K = P_*H_T*S.inverse();

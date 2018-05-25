@@ -42,10 +42,6 @@ FusionEKF::FusionEKF() {
   Hj_.setZero(3, 4);
 
   // initialize the variables in ekf
-  //ekf_.Q_ = MatrixXd::Zero(4, 4);
-  //ekf_.F_ = MatrixXd::Zero(4, 4);
-  //ekf_.P_ = MatrixXd::Zero(4, 4);
-  //ekf_.x_ = VectorXd::Ones(4);
   ekf_.Q_.setZero(4, 4);
   ekf_.F_.setZero(4, 4);
   ekf_.P_.setZero(4, 4);

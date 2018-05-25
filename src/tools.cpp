@@ -54,7 +54,7 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
   float vy = x_state(3);
 
   //check division by zero
-  if ((px < 0.01) and (py < 0.01)) {
+  if ((px < 0.001) and (py < 0.001)) {
       return Hj;
   }
 
